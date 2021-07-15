@@ -1,0 +1,13 @@
+@import "../../../../../styles/variables.scss";
+
+.comment {
+  border-bottom: 1px solid $secondary-xlight;
+
+  .comment-type {
+    font-size: 0.85rem;
+    border-radius: 1rem;
+    border: 1px solid $secondary-xlight;
+    background: white;
+    padding: 0.15rem 0.5rem;
+  }
+}

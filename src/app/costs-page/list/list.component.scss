@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: darken($primary, 10%);
+  text-transform: uppercase;
+}
+
+.list-header {
+  color: $text-white;
+  background: $primary;
+  font-weight: 500;
+}
+
+.summary {
+  border: 1px solid $secondary-xlight;
+  border-top: 1px solid $primary;
+}

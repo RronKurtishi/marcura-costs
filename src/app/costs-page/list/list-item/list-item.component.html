@@ -1,1 +1,25 @@
-<p>list-item works!</p>
+<div class="list-item-wrapper">
+  <div class="table-row flex items-center px-2">
+    <div class="w-15">
+      Name
+    </div>
+    <div class="w-20">
+      Code
+    </div>
+    <div class="w-20 text-right">
+      Quoted
+    </div>
+    <div class="w-20 text-right">
+      Screened
+    </div>
+    <div class="w-25 text-center">
+      <img src="/assets/icons/comment.svg" class="icon" alt="Comments">
+      1
+
+    </div>
+  </div>
+  <div class="comments-container px-4">
+    <app-comment></app-comment>
+    <app-new-comment></app-new-comment>
+  </div>
+</div>
