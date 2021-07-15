@@ -8,6 +8,7 @@ import { ListComponent } from './costs-page/list/list.component';
 import { ListItemComponent } from './costs-page/list/list-item/list-item.component';
 import { CommentComponent } from './costs-page/list/list-item/comment/comment.component';
 import { NewCommentComponent } from './costs-page/list/list-item/new-comment/new-comment.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewCommentComponent } from './costs-page/list/list-item/new-comment/new
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
