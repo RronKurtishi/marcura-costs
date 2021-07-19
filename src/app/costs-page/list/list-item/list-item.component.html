@@ -8,24 +8,24 @@
     </div>
     <div class="w-20 text-right">
       <div>
-        <span class="font-s color-secondary-light">{{currentCurrency.currency}} </span>{{ quoted.amount *
+        <span class="font-s color-secondary-light">{{currentCurrency.toCurrency}} </span>{{ quoted.amount *
         currentCurrency.exchangeRate | number:'1.2-2' }}
       </div>
       <div class="font-s color-secondary-light pt-1">
-        USD {{ quoted.amount * daCurrency.exchangeRate | number:'1.2-2' }}
+        USD {{ quoted.amount * daExchangeRate | number:'1.2-2' }}
       </div>
     </div>
     <div class="w-20 text-right">
       <div>
-        <span class="font-s color-secondary-light">{{currentCurrency.currency}} </span>{{ screened.amount *
+        <span class="font-s color-secondary-light">{{currentCurrency.toCurrency}} </span>{{ screened.amount *
         currentCurrency.exchangeRate | number:'1.2-2' }}
       </div>
       <div class="font-s color-secondary-light pt-1">
-        USD {{ screened.amount * daCurrency.exchangeRate | number:'1.2-2' }}
+        USD {{ screened.amount * daExchangeRate | number:'1.2-2' }}
       </div>
     </div>
     <div class="w-25 text-center">
-      <div class="p-1 cursor-pointer" (click)="showComments = !showComments">
+      <div class="w-fit-content mx-auto p-1 cursor-pointer select-none" (click)="showComments = !showComments">
         <img src="/assets/icons/comment.svg" class="icon align-middle" alt="Comments">
         <ng-container *ngIf="costItem.comments">
           <span class="align-middle pl-1">{{ costItem.comments.length }}</span>

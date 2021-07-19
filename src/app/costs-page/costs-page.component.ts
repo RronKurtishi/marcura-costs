@@ -1,6 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { CostItem } from '../core/interfaces/cost-item';
 import { Costs } from '../core/interfaces/costs';
 import { ExchangeRates } from '../core/interfaces/exchange-rates';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -17,12 +16,11 @@ export class CostsPageComponent implements OnInit, OnDestroy {
   public costs: Costs;
   public exchangeRates: ExchangeRates;
   public currencySelectForm: FormGroup;
-  public selectedExchangeRate: any;
-  public selectedCurrency: any;
-  public daCurrency: any;
+  public selectedCurrency: PaymentCurrency;
+  public daExchangeRate: number;
+  public selectedExchangeRateToUsd: number;
   private routeSubscription: Subscription;
   private formSubscription: Subscription;
-  private costItems: CostItem[];
 
   constructor(
     private route: ActivatedRoute,
@@ -30,46 +28,34 @@ export class CostsPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.currencySelectForm = this.formBuilder.group({
+      currencySelect: []
+    });
+
     this.routeSubscription = this.route.data
       .subscribe(
         (data) => {
           this.costs = data['costs'];
           this.exchangeRates = data['exchangeRates'];
-          this.costItems = this.costs.costs[0].costItems;
-          const currency: PaymentCurrency = this.exchangeRates.paymentCurrencies.find(currency => currency.toCurrency == this.costs.daCurrency.currency)!;
-          
-          this.daCurrency = {
-            currency: this.costs.daCurrency.currency,
-            exchangeRate: this.costs.baseCurrency.exchangeRate
-          }
-
-          this.selectedCurrency = {
-            currency: this.costs.daCurrency.currency,
-            exchangeRate: currency.exchangeRate,
-          }
-
-          this.currencySelectForm = this.formBuilder.group({
-            currencySelect: [this.selectedCurrency.currency]
-          });
-
-          this.selectedExchangeRate = this.costs.baseCurrency.exchangeRate;
+          this.daExchangeRate = this.costs.baseCurrency.exchangeRate;
         }
       )
 
     this.formSubscription = this.currencySelectForm.controls.currencySelect.valueChanges
       .subscribe(value => {
-        const currency: PaymentCurrency = this.exchangeRates.paymentCurrencies
-          .find(currency => currency.toCurrency == value)!;
-        this.selectedCurrency = {
-          currency: value,
-          exchangeRate: currency.exchangeRate,
-        };
-        this.selectedExchangeRate = this.calculateExchangeRate(currency.exchangeRate, this.daCurrency.exchangeRate)
+        this.selectedCurrency = this.getSelectedCurrency(value);
+        this.selectedExchangeRateToUsd = this.exchangeRateToUsd(this.selectedCurrency.exchangeRate, this.daExchangeRate)
       })
+
+    this.currencySelectForm.controls.currencySelect.setValue(this.costs.daCurrency.currency, { emitEvent: true });
   }
 
-  calculateExchangeRate(currencyExchangeRate: any, sourceCurrencyToUSD: any) {
+  exchangeRateToUsd(currencyExchangeRate: any, sourceCurrencyToUSD: any) {
     return currencyExchangeRate / sourceCurrencyToUSD;
+  }
+
+  getSelectedCurrency(value: string) {
+    return this.exchangeRates.paymentCurrencies.find(currency => currency.toCurrency == value)!;
   }
 
   ngOnDestroy(): void {

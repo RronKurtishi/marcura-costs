@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CostItemCost } from 'src/app/core/interfaces/cost-item-cost';
+import { PaymentCurrency } from 'src/app/core/interfaces/payment-currency';
 
 @Component({
   selector: 'app-list',
@@ -7,8 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   @Input() cost: any;
-  @Input() currentCurrency: any;
-  @Input() daCurrency: any;
+  @Input() currentCurrency: PaymentCurrency;
+  @Input() daExchangeRate: number;
 
   public totalQuoted: number;
   public totalScreened: number;
@@ -19,11 +21,10 @@ export class ListComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    // Calculate total amounts
     this.cost.costItems.forEach((costItem: any) => {
-      const quoted = costItem.costs.find((exp: any) => exp.type === 'Quoted').amount;
-      this.totalQuoted += quoted;
-      const screened = costItem.costs.find((exp: any) => exp.type === 'Screened').amount;
-      this.totalScreened += screened;
+      this.totalQuoted += costItem.costs.find((cost: CostItemCost) => cost.type === 'Quoted').amount;
+      this.totalScreened += costItem.costs.find((cost: CostItemCost) => cost.type === 'Screened').amount;;
     })
   }
 }

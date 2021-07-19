@@ -8,9 +8,9 @@
           {{ currency.toCurrency }}</option>
       </select>
     </form>
-    <span>1 USD = <span class="semi-bold">{{ selectedExchangeRate | number:'1.2-4'}}
+    <span>1 USD = <span class="semi-bold">{{ selectedExchangeRateToUsd | number:'1.2-4'}}
         {{ currencySelectForm.controls.currencySelect.value }}</span></span>
   </div>
 </div>
-<app-list *ngFor="let cost of costs.costs" [cost]="cost" [currentCurrency]="selectedCurrency" [daCurrency]="daCurrency">
+<app-list *ngFor="let cost of costs.costs" [cost]="cost" [currentCurrency]="selectedCurrency" [daExchangeRate]="daExchangeRate">
 </app-list>
