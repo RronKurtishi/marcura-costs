@@ -1,11 +1,15 @@
-<div class="flex justify-between">
+<div class="flex justify-between items-center py-1">
   <h1>COSTS</h1>
-  <div>
+  <div class="color-secondary">
     <span>Currency</span>
-    <select name="" id="" class="p-1 currency-select">
-      <option value="SGD">SGD</option>
-    </select>
-    <span>1 USD = 1.334 SGD</span>
+    <form [formGroup]="currencySelectForm" class="inline">
+      <select formControlName="currencySelect" name="" id="" class="p-1 mx-5 currency-select">
+        <option *ngFor="let currency of exchangeRates.paymentCurrencies" value="{{ currency.toCurrency }}">
+          {{ currency.toCurrency }}</option>
+      </select>
+    </form>
+    <span>1 USD = <span class="semi-bold">{{ selectedExchangeRate | number:'1.2-4'}}
+        {{ currencySelectForm.controls.currencySelect.value }}</span></span>
   </div>
 </div>
 <app-list></app-list>
