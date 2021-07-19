@@ -12,4 +12,5 @@
         {{ currencySelectForm.controls.currencySelect.value }}</span></span>
   </div>
 </div>
-<app-list></app-list>
+<app-list *ngFor="let cost of costs.costs" [cost]="cost" [currentCurrency]="selectedCurrency" [daCurrency]="daCurrency">
+</app-list>

@@ -1,25 +1,37 @@
 <div class="list-item-wrapper">
   <div class="table-row flex items-center px-2">
     <div class="w-15">
-      Name
+      {{ costItem.name }}
     </div>
     <div class="w-20">
-      Code
+      {{ costItem.costItemAlias.accountingCode }}
     </div>
     <div class="w-20 text-right">
-      Quoted
+      <div>
+        <span class="font-s color-secondary-light">{{currentCurrency.currency}} </span>{{ quoted.amount * currentCurrency.exchangeRate | number:'1.2-2' }}
+      </div>
+      <div class="font-s color-secondary-light pt-1">
+        USD {{ quoted.amount * daCurrency.exchangeRate | number:'1.2-2' }}
+      </div>
     </div>
     <div class="w-20 text-right">
-      Screened
+      <div>
+        <span class="font-s color-secondary-light">{{currentCurrency.currency}} </span>{{ screened.amount * currentCurrency.exchangeRate | number:'1.2-2' }}
+      </div>
+      <div class="font-s color-secondary-light pt-1">
+        USD {{ screened.amount * daCurrency.exchangeRate | number:'1.2-2' }}
+      </div>
     </div>
     <div class="w-25 text-center">
-      <img src="/assets/icons/comment.svg" class="icon" alt="Comments">
-      1
-
+      <img src="/assets/icons/comment.svg" class="icon" alt="Comments" (click)="showComments = !showComments">
+      <ng-container *ngIf="costItem.comments"> {{ costItem.comments.length }}
+      </ng-container>
     </div>
   </div>
-  <div class="comments-container px-4">
-    <app-comment></app-comment>
+  <div class="comments-container px-4" *ngIf="showComments">
+    <ng-container *ngIf="costItem.comments">
+      <app-comment *ngFor="let comment of costItem.comments"></app-comment>
+    </ng-container>
     <app-new-comment></app-new-comment>
   </div>
 </div>
