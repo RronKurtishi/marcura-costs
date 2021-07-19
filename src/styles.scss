@@ -140,4 +140,13 @@ $spacings: $spacing0 $spacing1 $spacing2 $spacing3 $spacing4 $spacing5 $spacing6
 
 .icon {
 	height: 1rem;
+	cursor: pointer;
+}
+
+.color-secondary-light {
+	color: $secondary-light;
+}
+
+.color-secondary-xlight {
+	color: $secondary-xlight;
 }
