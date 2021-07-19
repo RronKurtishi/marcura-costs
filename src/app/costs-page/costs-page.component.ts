@@ -30,7 +30,6 @@ export class CostsPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-
     this.routeSubscription = this.route.data
       .subscribe(
         (data) => {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-comment',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-comment.component.scss']
 })
 export class NewCommentComponent implements OnInit {
-
-  constructor() { }
+  public newCommentForm: FormGroup;
+  
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.newCommentForm = this.formBuilder.group({
+      commentType: ['placeholder',Validators.required],
+      comment: ['', Validators.required]
+    })
   }
-
 }
