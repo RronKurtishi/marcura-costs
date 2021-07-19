@@ -1,0 +1,15 @@
+@import "../../../../styles/variables.scss";
+
+.list-item-wrapper {
+  border: 1px solid $secondary-xlight;
+  border-top: none;
+
+  .table-row {
+    color: $secondary;
+    height: 4rem;
+  }
+}
+
+.comments-container {
+  background: $primary-light; 
+}

@@ -1,0 +1,12 @@
+<form [formGroup]="newCommentForm">
+  <div class="flex gap-10 justify-between items-center py-2">
+    <select formControlName="commentType" class="comment-type-select p-1">
+      <option value="placeholder" selected disabled hidden>Select comment type</option>
+      <option value="Internal">Internal</option>
+      <option value="External">External</option>
+    </select>
+    <input formControlName="comment" type="text" [attr.disabled]="newCommentForm.controls.commentType.pristine ? true : null"
+      class="comment-input p-1" placeholder="Type comment">
+    <button [disabled]="newCommentForm.invalid">Add</button>
+  </div>
+</form>

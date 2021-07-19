@@ -1,0 +1,20 @@
+<div class="comment py-2 flex items-center">
+  <div class="w-10">
+    <div class="comment-type" [ngClass]="{'internal': comment.type === 'Internal', 'external': comment.type === 'External'}">
+      {{ comment.type }}
+    </div>
+  </div>
+  <div class="w-75">{{ comment.comment }}</div>
+  <div class="w-25 flex justify-between items-center">
+    <div>
+      {{ comment.author }}
+    </div>
+    <div class="color-secondary-light">
+      {{ comment.date | date:'d MMM YYY hh:mm' }}
+    </div>
+    <div>
+      <img src="/assets/icons/edit.svg" class="icon px-1 select-none" alt="Edit" title="Edit">
+      <img src="/assets/icons/delete.svg" class="icon px-1 select-none" alt="Delete" title="Delete">
+    </div>
+  </div>
+</div>

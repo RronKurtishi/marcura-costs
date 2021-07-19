@@ -1,0 +1,16 @@
+<div class="flex justify-between items-center py-1">
+  <h1>COSTS</h1>
+  <div class="color-secondary">
+    <span>Currency</span>
+    <form [formGroup]="currencySelectForm" class="inline">
+      <select formControlName="currencySelect" name="" id="" class="p-1 mx-5 currency-select">
+        <option *ngFor="let currency of exchangeRates.paymentCurrencies" value="{{ currency.toCurrency }}">
+          {{ currency.toCurrency }}</option>
+      </select>
+    </form>
+    <span>1 USD = <span class="semi-bold">{{ selectedExchangeRateToUsd | number:'1.2-4'}}
+        {{ currencySelectForm.controls.currencySelect.value }}</span></span>
+  </div>
+</div>
+<app-list *ngFor="let cost of costs.costs" [cost]="cost" [currentCurrency]="selectedCurrency" [daExchangeRate]="daExchangeRate">
+</app-list>

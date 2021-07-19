@@ -1,0 +1,13 @@
+@import "../../../styles/variables.scss";
+
+.list-header {
+  color: $text-white;
+  background: $primary;
+  font-weight: 500;
+}
+
+.summary {
+  border: 1px solid $secondary-xlight;
+  border-top: 1px solid $primary;
+  color: $secondary;
+}

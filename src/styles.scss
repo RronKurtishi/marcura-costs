@@ -1,1 +1,241 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import "styles/variables.scss";
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+// Percentage Widths
+$w10: 10 10%;
+$w15: 15 15%;
+$w20: 20 20%;
+$w25: 25 25%;
+$w30: 30 30%;
+$w35: 35 35%;
+$w40: 40 40%;
+$w50: 50 50%;
+$w60: 60 60%;
+$w70: 70 70%;
+$w75: 75 75%;
+$w80: 80 80%;
+$w90: 90 90%;
+$w100: 100 100%;
+$widths: $w10, $w15, $w20, $w25, $w30, $w35, $w40, $w50, $w60, $w70, $w75, $w80,
+  $w90, $w100;
+
+@each $width in $widths {
+  .w-#{nth($width, 1)} {
+    width: nth($width, 2) !important;
+  }
+}
+
+// Padding & Margin
+$spacing0: 0 0;
+$spacing1: 1 0.25rem;
+$spacing2: 2 0.5rem;
+$spacing3: 3 0.75rem;
+$spacing4: 4 1rem;
+$spacing5: 5 1.5rem;
+$spacing6: 6 2rem;
+$spacings: $spacing0 $spacing1 $spacing2 $spacing3 $spacing4 $spacing5 $spacing6;
+
+@each $spacing in $spacings {
+  .mt-#{nth($spacing, 1)} {
+    margin-top: nth($spacing, 2) !important;
+  }
+  .mb-#{nth($spacing, 1)} {
+    margin-bottom: nth($spacing, 2) !important;
+  }
+  .mr-#{nth($spacing, 1)} {
+    margin-right: nth($spacing, 2) !important;
+  }
+  .ml-#{nth($spacing, 1)} {
+    margin-left: nth($spacing, 2) !important;
+  }
+  .my-#{nth($spacing, 1)} {
+    margin-top: nth($spacing, 2) !important;
+    margin-bottom: nth($spacing, 2) !important;
+  }
+  .mx-#{nth($spacing, 1)} {
+    margin-left: nth($spacing, 2) !important;
+    margin-right: nth($spacing, 2) !important;
+  }
+  .pt-#{nth($spacing, 1)} {
+    padding-top: nth($spacing, 2) !important;
+  }
+  .pb-#{nth($spacing, 1)} {
+    padding-bottom: nth($spacing, 2) !important;
+  }
+  .pr-#{nth($spacing, 1)} {
+    padding-right: nth($spacing, 2) !important;
+  }
+  .pl-#{nth($spacing, 1)} {
+    padding-left: nth($spacing, 2) !important;
+  }
+  .py-#{nth($spacing, 1)} {
+    padding-top: nth($spacing, 2) !important;
+    padding-bottom: nth($spacing, 2) !important;
+  }
+  .px-#{nth($spacing, 1)} {
+    padding-left: nth($spacing, 2) !important;
+    padding-right: nth($spacing, 2) !important;
+  }
+  .p-#{nth($spacing, 1)} {
+    padding: nth($spacing, 2) !important;
+  }
+}
+
+// Atomic Classes
+.flex {
+  display: flex;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.w-fit-content {
+  max-width: fit-content;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font-s {
+	font-size: 0.9rem;
+}
+
+.font-xs {
+	font-size: 0.675rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.icon {
+  height: 1rem;
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.color-secondary {
+  color: $secondary;
+}
+
+.color-secondary-light {
+  color: $secondary-light;
+}
+
+.color-secondary-xlight {
+  color: $secondary-xlight;
+}
+
+button {
+  padding: 0.4rem;
+  height: 30px;
+  background: $primary;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  min-width: 4rem;
+
+  &:disabled {
+    background: $secondary-xlight !important;
+  }
+
+  &:hover {
+    background: darken($primary, 5%);
+  }
+
+  &:focus {
+    background: darken($primary, 10%);
+  }
+}
+
+input,
+select {
+  height: 30px;
+  padding: 0;
+  background: white;
+  border: 1px solid darken($secondary-xlight, 20%);
+  border-radius: 2px;
+  color: darken($secondary-xlight, 20%);
+
+  &:disabled {
+    border: 1px solid $secondary-xlight;
+    background: transparent;
+    color: $secondary-xlight;
+
+    &::placeholder {
+      color: $secondary-xlight;
+    }
+  }
+
+  &.currency-select {
+    color: $secondary;
+  }
+
+  > option {
+    color: $secondary;
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../../../../styles/variables.scss";
+
+.comment {
+  border-bottom: 1px solid $secondary-xlight;
+  color: $secondary;
+  
+  .comment-type {
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    padding: 0.15rem 0.5rem;
+    width: fit-content;
+    max-width: 4.4rem; // fallback for IE
+    text-align: center;
+  
+    &.internal {
+      color: $secondary-light;
+      border: 1px solid $secondary-xlight;
+      background: white;
+    }
+
+    &.external {
+      color: white;
+      background: lighten($secondary, 20%);
+      border: 1px solid lighten($secondary, 20%);
+    }
+  }
+}
