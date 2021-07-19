@@ -30,7 +30,7 @@
   </div>
   <div class="comments-container px-4" *ngIf="showComments">
     <ng-container *ngIf="costItem.comments">
-      <app-comment *ngFor="let comment of costItem.comments"></app-comment>
+      <app-comment *ngFor="let comment of costItem.comments" [comment]="comment"></app-comment>
     </ng-container>
     <app-new-comment></app-new-comment>
   </div>
