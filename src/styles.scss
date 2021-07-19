@@ -4,6 +4,7 @@
 * {
   font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+	box-sizing: border-box;
 }
 
 // Percentage Widths
@@ -90,6 +91,10 @@ $spacings: $spacing0 $spacing1 $spacing2 $spacing3 $spacing4 $spacing5 $spacing6
   display: flex;
 }
 
+.gap-10 {
+	gap: 10px;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -143,10 +148,50 @@ $spacings: $spacing0 $spacing1 $spacing2 $spacing3 $spacing4 $spacing5 $spacing6
 	cursor: pointer;
 }
 
+.color-secondary {
+	color: $secondary;
+}
+
 .color-secondary-light {
 	color: $secondary-light;
 }
 
 .color-secondary-xlight {
 	color: $secondary-xlight;
+}
+
+button {
+	padding: 0.5rem;
+	background: $primary;
+	color: white;
+	border-radius: 4px;
+	border: none;
+	min-width: 4rem;
+
+	&:disabled {
+		background: $secondary-xlight;
+	}
+}
+
+input, select {
+	height: 30px;
+	padding: 0;
+	background: white;
+	border: 1px solid darken($secondary-xlight, 20%);
+	border-radius: 2px;
+	color: darken($secondary-xlight, 20%);
+
+	&:disabled {
+		border: 1px solid $secondary-xlight;
+		background: transparent;
+		color: $secondary-xlight;
+	}
+
+	&.currency-select {
+		color: $secondary;
+	}
+
+	> option {
+		color: $secondary;
+	}
 }
