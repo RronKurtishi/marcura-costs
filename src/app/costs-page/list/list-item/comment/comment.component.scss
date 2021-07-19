@@ -10,7 +10,7 @@
     border-radius: 1rem;
     padding: 0.15rem 0.5rem;
     width: fit-content;
-    max-width: 4rem; // fallback for IE
+    max-width: 4.4rem; // fallback for IE
     text-align: center;
   
     &.internal {
@@ -21,8 +21,8 @@
 
     &.external {
       color: white;
-      background: $secondary;
-      border: 1px solid $secondary;
+      background: lighten($secondary, 20%);
+      border: 1px solid lighten($secondary, 20%);
     }
   }
 }

@@ -132,6 +132,23 @@ $spacings: $spacing0 $spacing1 $spacing2 $spacing3 $spacing4 $spacing5 $spacing6
   position: fixed;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.w-fit-content {
+  max-width: fit-content;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .font-s {
 	font-size: 0.9rem;
 }
@@ -191,7 +208,7 @@ button {
   }
 
   &:focus {
-    background: orangered;
+    background: darken($primary, 10%);
   }
 }
 

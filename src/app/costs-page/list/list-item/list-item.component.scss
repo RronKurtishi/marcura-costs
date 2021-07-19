@@ -1,6 +1,5 @@
 @import "../../../../styles/variables.scss";
 
-// TABLE ROW
 .list-item-wrapper {
   border: 1px solid $secondary-xlight;
   border-top: none;
@@ -13,8 +12,4 @@
 
 .comments-container {
   background: $primary-light; 
-}
-
-.align-middle {
-  vertical-align: middle;
 }
