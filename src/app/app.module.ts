@@ -9,6 +9,7 @@ import { ListItemComponent } from './costs-page/list/list-item/list-item.compone
 import { CommentComponent } from './costs-page/list/list-item/comment/comment.component';
 import { NewCommentComponent } from './costs-page/list/list-item/new-comment/new-comment.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
