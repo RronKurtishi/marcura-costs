@@ -2,12 +2,27 @@
 
 .comment {
   border-bottom: 1px solid $secondary-xlight;
-
+  color: $secondary;
+  
   .comment-type {
     font-size: 0.85rem;
+    font-weight: 500;
     border-radius: 1rem;
-    border: 1px solid $secondary-xlight;
-    background: white;
     padding: 0.15rem 0.5rem;
+    width: fit-content;
+    max-width: 4rem; // fallback for IE
+    text-align: center;
+  
+    &.internal {
+      color: $secondary-light;
+      border: 1px solid $secondary-xlight;
+      background: white;
+    }
+
+    &.external {
+      color: white;
+      background: $secondary;
+      border: 1px solid $secondary;
+    }
   }
 }
